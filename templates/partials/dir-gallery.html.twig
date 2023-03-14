@@ -1,0 +1,19 @@
+{% if style == 'masonry' %}
+    <div class="dir-gallery-thumbnails-masonry {% if align == 'right' %}dir-gallery-right{% endif %} {% if align == 'left' %}dir-gallery-left{% endif %}" style="width:{{ width }}%">
+        {%~ for image in gallery_images %}
+        <a href="{{ slug }}/{{ image.filename }}" class="glightbox" data-gallery="gallery_{{ gallery_id }}">
+            {{ image.cropResize(300,300).html('My title', 'Some ALT text', 'sds')|raw }}
+        </a>
+        {%~ endfor %}
+    </div>
+{% else %}
+
+<div class="dir-gallery-thumbnails-grid {% if align == 'right' %}dir-gallery-right{% endif %} {% if align == 'left' %}dir-gallery-left{% endif %}" style="width:{{ width }}%">
+    {%~ for image in gallery_images %}
+        <a href="{{ slug }}/{{ image.filename }}" class="glightbox" data-gallery="gallery_{{ gallery_id }}" style="width: {{ image_width }}%;">
+            {{ image.cropZoom(400,400).html('My title', 'Some ALT text', 'sds')|raw }}
+        </a>
+    {%~ endfor %}
+</div>
+
+{% endif %}

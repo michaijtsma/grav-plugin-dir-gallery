@@ -1,0 +1,36 @@
+name: Directory Gallery
+slug: dir-gallery
+type: plugin
+version: 0.1.0
+description: Adds shortcodes for displaying galleries loaded from images in a directory
+icon: plug
+author:
+  name: Micha
+  email: micha.ijtsma@gmail.com
+homepage: https://github.com/michaijtsma/grav-plugin-dir-gallery
+keywords: grav, plugin, gallery, galleries
+bugs: https://github.com/michaijtsma/grav-plugin-dir-gallery/issues
+docs: https://github.com/michaijtsma/grav-plugin-dir-gallery/blob/develop/README.md
+license: MIT
+
+dependencies:
+  - { name: grav, version: '>=1.6.0' }
+  - shortcode-core
+
+form:
+  validation: loose
+  fields:
+    enabled:
+      type: toggle
+      label: PLUGIN_ADMIN.PLUGIN_STATUS
+      highlight: 1
+      default: 0
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+    text_var:
+      type: text
+      label: PLUGIN_DIR_GALLERY.TEXT_VARIABLE
+      help: PLUGIN_DIR_GALLERY.TEXT_VARIABLE_HELP
